@@ -173,8 +173,6 @@ button:hover {
 ## OUTPUT
 ![alt text](1.jpg)
 ![alt text](2.jpg)
-![
-  
-](3.jpg)
+![alt text](3.jpg)
 ## RESULT
 The program for developing a simple calculator in React.js is executed successfully.
