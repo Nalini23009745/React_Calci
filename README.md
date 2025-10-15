@@ -47,9 +47,134 @@ Upload to GitHub Pages for free hosting.
 
 ## PROGRAM
 
+## Calculater.jsx
+
+```
+import React, { useState } from "react";
+import "./App.css";
+
+export default function Calculator() {
+  const [input, setInput] = useState("");
+
+  const handleClick = (value) => {
+    if (value === "=") {
+      try {
+        setInput(eval(input).toString());
+      } catch {
+        setInput("Error");
+      }
+    } else if (value === "C") {
+      setInput("");
+    } else {
+      setInput(input + value);
+    }
+  };
+
+  const buttons = [
+    "C", "/", "*", "←",
+    "7", "8", "9", "-",
+    "4", "5", "6", "+",
+    "1", "2", "3", "=",
+    "0", ".", "%",
+  ];
+
+  return (
+    <div className="calculator-container">
+      <div className="calculator">
+        <div className="display">{input || "0"}</div>
+        <div className="buttons">
+          {buttons.map((btn, i) => (
+            <button
+              key={i}
+              className={btn === "=" ? "equal" : ""}
+              onClick={() => {
+                if (btn === "←") setInput(input.slice(0, -1));
+                else handleClick(btn);
+              }}
+            >
+              {btn}
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+## Calculater.css
+```
+body {
+  background-color: #202124;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.calculator-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator {
+  background: #333;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  width: 320px;
+}
+
+.display {
+  background: #111;
+  color: #fff;
+  font-size: 2.2rem;
+  text-align: right;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+button {
+  background: #444;
+  color: white;
+  border: none;
+  font-size: 1.3rem;
+  border-radius: 10px;
+  padding: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #666;
+}
+
+.equal {
+  background: #f57c00;
+  grid-column: span 1;
+}
+
+.equal:hover {
+  background: #ff9800;
+}
+```
 
 ## OUTPUT
-
-
+![alt text](1.jpg)
+![alt text](2.jpg)
+![
+  
+](3.jpg)
 ## RESULT
 The program for developing a simple calculator in React.js is executed successfully.
